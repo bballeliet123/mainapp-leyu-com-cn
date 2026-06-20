@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>熊猫体育 · 资料索引与信息整理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #faf8f4;
+            font-family: 'Georgia', 'Times New Roman', 'Noto Serif SC', serif;
+            color: #2b2b2b;
+            line-height: 1.85;
+            padding: 2rem 1.5rem;
+        }
+
+        .page {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #fffcf8;
+            padding: 2.8rem 2.2rem;
+            border-radius: 2px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        /* 文章 header */
+        .article-header {
+            margin-bottom: 2.8rem;
+            border-bottom: 1px solid #e8e0d6;
+            padding-bottom: 1.6rem;
+        }
+
+        .article-header h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #1e1e1e;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-header .subhead {
+            font-size: 1rem;
+            color: #6b6058;
+            font-style: italic;
+            border-left: 3px solid #b7a99a;
+            padding-left: 1rem;
+            margin-top: 0.4rem;
+        }
+
+        /* 正文段落 */
+        .prose p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            text-align: justify;
+            word-break: break-word;
+        }
+
+        .prose p.lead {
+            font-size: 1.15rem;
+            color: #3d352f;
+        }
+
+        .prose a {
+            color: #6f5c47;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #c9b8a6;
+            transition: color 0.2s;
+        }
+
+        .prose a:hover {
+            color: #a6805e;
+            text-decoration-color: #7f6a53;
+        }
+
+        /* 引用框 / 提示卡片 */
+        .callout {
+            background: #f2ede6;
+            border-left: 6px solid #b7a99a;
+            padding: 1.4rem 1.8rem;
+            margin: 2rem 0;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.98rem;
+            color: #3e3a35;
+        }
+
+        .callout strong {
+            color: #4d3e31;
+            font-weight: 600;
+        }
+
+        .callout .callout-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: #dacfc2;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            color: #312a24;
+            margin-bottom: 0.5rem;
+        }
+
+        /* 信息卡片——类似索引小卡片 */
+        .info-card {
+            background: #f9f5ef;
+            border: 1px solid #e3d9ce;
+            padding: 1.4rem 1.8rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .info-card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: #3c342b;
+            border-bottom: 1px dashed #d6cbbc;
+            padding-bottom: 0.4rem;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding-left: 0.2rem;
+        }
+
+        .info-card li {
+            padding: 0.3rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .info-card li::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #a28d77;
+            font-size: 0.7rem;
+            top: 0.45rem;
+        }
+
+        /* FAQ 摘要（折叠式风格） */
+        .faq-summary {
+            margin: 2.5rem 0 1rem;
+            border-top: 1px solid #e2d9cf;
+            padding-top: 1.8rem;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #2c261f;
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item .question {
+            font-weight: 600;
+            color: #4b3f34;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-item .answer {
+            color: #4e4a44;
+            padding-left: 1.2rem;
+            border-left: 2px solid #d0c3b4;
+            padding-top: 0.1rem;
+            padding-bottom: 0.1rem;
+        }
+
+        .visit-line {
+            margin: 2rem 0 0.2rem;
+            padding: 1.4rem 0 0.2rem;
+            border-top: 1px solid #ddd5ca;
+            font-style: normal;
+            font-size: 1rem;
+            color: #3f3a34;
+            text-align: left;
+        }
+
+        .visit-line a {
+            font-weight: 500;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 0.8rem;
+            }
+            .page {
+                padding: 1.8rem 1.2rem;
+            }
+            .article-header h1 {
+                font-size: 1.7rem;
+            }
+            .prose p {
+                font-size: 1rem;
+            }
+            .callout {
+                padding: 1rem 1.2rem;
+            }
+            .info-card {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="article-header">
+        <h1>熊猫体育 · 资料整理与信息索引</h1>
+        <div class="subhead">关于体育资讯、赛事记录与内容聚合的笔记式介绍</div>
+    </div>
+
+    <div class="prose">
+        <p class="lead">
+            在大量体育信息分散于不同平台的今天，如何高效地梳理、归档和回顾赛事内容，成了一种隐性的需求。本文以资料整理和信息索引的视角，介绍 <a href="https://m-home-pandasports.com">熊猫体育</a> 所体现的内容组织方式——并非作为所谓“平台推荐”，而是将其视为一个可被观察的信息节点。
+        </p>
+
+        <p>
+            从结构上看，体育信息通常包含赛程、比分、统计数据和深度评论几个维度。而一个好的索引方式，能够帮助读者在不同维度之间快速切换。以 <a href="https://m-home-pandasports.com">熊猫体育</a> 为例，其内容聚合逻辑倾向于将实时数据与赛后分析并列呈现，减少了多页面跳转带来的注意力损耗。这种设计思路，本质上是对信息“可检索性”的强调。
+        </p>
+
+        <div class="callout">
+            <span class="callout-label">📌 索引提示</span><br>
+            <strong>资料归档建议：</strong> 关注某一联赛或项目时，可同时收集赛前前瞻、实时比分、战术图解与赛后综述，形成闭环信息链。避免仅依赖单独某类来源，以防视角单一。
+        </div>
+
+        <p>
+            在信息整理的实践中，“来源标注”与“时间戳”是两个容易被忽略的要点。当引用某条赛事动态或运动员数据时，标明出处与更新时间，可以大幅降低后续核实成本。这也是很多内容型站点——包括 <a href="https://m-home-pandasports.com">熊猫体育</a> ——在页面中内嵌时间标签与来源链接的原因。对于整理者而言，类似的设计细节本身就是一种元数据提示。
+        </p>
+
+        <div class="info-card">
+            <h3>📋 信息索引特征摘要</h3>
+            <ul>
+                <li>赛事分类与标签系统：便于按联赛、队伍或赛季筛选</li>
+                <li>数据面板与文字报道并列：减少上下文切换</li>
+                <li>历史记录保留完整：部分页面提供赛季纵向对比</li>
+                <li>外部引用通常标注来源：利于二次核查</li>
+            </ul>
+        </div>
+
+        <p>
+            当然，任何信息聚合都不可能覆盖全部细节。作为资料整理者，可以做的不是等待“完美信息源”，而是建立自己的筛选与归档习惯。例如，对于频繁关注的联赛，可定期提取关键数据并做本地化记录；对于深度内容，则保留原文链接与摘要。在这一过程中，<a href="https://m-home-pandasports.com">熊猫体育</a> 的角色更像是信息流中的一环，而非终点。
+        </p>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-summary">
+            <h2>❓ 常见索引问题 (FAQ 摘要)</h2>
+            <div class="faq-item">
+                <div class="question">Q：如何判断某条体育资讯的时效性？</div>
+                <div class="answer">A：优先查看页面内嵌的发布时间或更新时间，若没有明确时间戳，可对照赛事实际发生日期。部分站点（如熊猫体育）会在文章头部或数据模块标注时间。</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">Q：整理赛事数据时，哪些字段最值得记录？</div>
+                <div class="answer">A：建议至少保留：比赛日期、对阵双方、最终比分、关键事件（进球/得分/换人）、数据来源链接。若有条件可附加简短战术笔记。</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">Q：索引多个来源时如何避免信息冲突？</div>
+                <div class="answer">A：以官方数据（如联赛官网、俱乐部公告）为基准，其他来源作为补充或交叉验证。标注每一条记录的引用出处，冲突时注明差异。</div>
+            </div>
+        </div>
+
+        <div class="visit-line">
+            <span>更多关于内容聚合与体育信息索引的探讨，可延伸参阅 <a href="https://m-home-pandasports.com">熊猫体育</a> 的页面结构及其信息组织方式。</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
