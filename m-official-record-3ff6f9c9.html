@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>熊猫体育 · 资料索引与信息整理</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #f9e9d2 0%, #f7d9b0 50%, #f0cb9c 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.25rem;
+      line-height: 1.7;
+      color: #3d2e1c;
+    }
+
+    .card {
+      max-width: 820px;
+      width: 100%;
+      background: rgba(255, 248, 237, 0.92);
+      backdrop-filter: blur(4px);
+      border-radius: 36px;
+      padding: 2.8rem 2.5rem;
+      box-shadow: 0 12px 30px rgba(120, 80, 40, 0.12), 0 4px 12px rgba(100, 70, 30, 0.08);
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 18px 36px rgba(120, 80, 40, 0.18);
+    }
+
+    .opening {
+      font-size: 1.4rem;
+      font-weight: 350;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.2rem;
+      color: #5a3f22;
+      border-left: 4px solid #dba87a;
+      padding-left: 1.2rem;
+    }
+
+    .opening em {
+      font-style: italic;
+      color: #7f5c37;
+    }
+
+    .lead {
+      margin-bottom: 1.8rem;
+      font-size: 1.05rem;
+      color: #4b3922;
+    }
+
+    .lead a {
+      color: #9b6f44;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 2px dotted #dba87a;
+      transition: border-bottom 0.2s, color 0.2s;
+    }
+
+    .lead a:hover {
+      color: #7f4f2a;
+      border-bottom: 2px solid #bf8c62;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem 1.8rem;
+      margin: 2rem 0 1.8rem;
+    }
+
+    .feature-item {
+      background: #fcf4e9;
+      padding: 1rem 1.25rem;
+      border-radius: 24px;
+      box-shadow: inset 0 0 0 1px #ecdccc;
+      font-size: 0.98rem;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .feature-item:hover {
+      background: #f9edde;
+      transform: translateY(-2px);
+    }
+
+    .feature-item strong {
+      display: block;
+      font-weight: 600;
+      color: #7f5c37;
+      margin-bottom: 0.25rem;
+      font-size: 1.05rem;
+    }
+
+    .feature-item span {
+      color: #4e3a24;
+    }
+
+    .scene-note {
+      background: #ede1d0;
+      border-radius: 30px;
+      padding: 1rem 1.5rem;
+      margin: 1.6rem 0 1.8rem;
+      font-size: 0.96rem;
+      color: #3c2d1b;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.3rem 0.6rem;
+    }
+
+    .scene-note a {
+      color: #7f5c37;
+      text-decoration: none;
+      border-bottom: 1px solid #bf8c62;
+      font-weight: 500;
+    }
+
+    .scene-note a:hover {
+      color: #5e4127;
+      border-bottom: 1px solid #9b6f44;
+    }
+
+    .closing {
+      margin-top: 1.4rem;
+      font-size: 1rem;
+      border-top: 1px solid #e5d3be;
+      padding-top: 1.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.8rem;
+    }
+
+    .closing p {
+      max-width: 70%;
+      color: #4a3821;
+    }
+
+    .closing a {
+      background: #dba87a;
+      color: #2f2212;
+      text-decoration: none;
+      padding: 0.5rem 1.6rem;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      transition: background 0.25s, box-shadow 0.15s;
+      box-shadow: 0 2px 6px rgba(140, 90, 40, 0.15);
+      white-space: nowrap;
+    }
+
+    .closing a:hover {
+      background: #cd9a6c;
+      box-shadow: 0 4px 10px rgba(120, 75, 35, 0.2);
+    }
+
+    .footnote {
+      margin-top: 2.2rem;
+      font-size: 0.85rem;
+      color: #7b6a56;
+      text-align: center;
+      opacity: 0.85;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 1.8rem 1.25rem;
+        border-radius: 28px;
+      }
+
+      .opening {
+        font-size: 1.2rem;
+        padding-left: 0.9rem;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+      }
+
+      .closing {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .closing p {
+        max-width: 100%;
+      }
+
+      .closing a {
+        align-self: flex-start;
+      }
+
+      .scene-note {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="opening">
+      <em>资料总要从某处开始整理</em> —— 于是我翻开了一本关于熊猫的笔记。
+    </div>
+
+    <div class="lead">
+      从赛事存档、选手资料到运动科普，过去几年里我习惯把零散的信息归档到一处。那个地方慢慢变成了一个入口，也就是现在的 
+      <a href="https://m-official-pandasports.com">熊猫体育</a>。没有花哨的导航，只有按年份、项目、关键词归拢的内容卡片，像一本随时可以翻阅的案头手册。
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-item">
+        <strong>📋 按赛季整理</strong>
+        <span>每个赛季单独成页，包含赛果、数据摘要与背景链接，方便回溯对比。</span>
+      </div>
+      <div class="feature-item">
+        <strong>🏷️ 标签化索引</strong>
+        <span>选手、队伍、场馆、规则变动……每个条目都带有多级标签，筛选起来很直接。</span>
+      </div>
+      <div class="feature-item">
+        <strong>📎 外链与备注</strong>
+        <span>每条记录都附有原始出处或补充说明，适合做深度查阅时参考。</span>
+      </div>
+      <div class="feature-item">
+        <strong>🧾 轻量化阅读</strong>
+        <span>页面不堆弹窗、不强制登录，打开就是内容本身，读起来负担小。</span>
+      </div>
+    </div>
+
+    <div class="scene-note">
+      <span>🧭 比如某天你想回顾三年前某赛事的出场名单，或翻一翻特定规则的演变过程 —— 就可以从</span>
+      <a href="https://m-official-pandasports.com">熊猫体育</a>
+      <span>的索引页开始。信息本身就在那里，只是被整理得更好找了一点。</span>
+    </div>
+
+    <div class="closing">
+      <p>这个页面不会频繁弹窗，也没有动态广告。你随时可以回来，继续沿着标签翻看下去。</p>
+      <a href="https://m-official-pandasports.com">熊猫体育</a>
+    </div>
+
+    <div class="footnote">
+      · 资料性页面 · 内容持续归集中 ·
+    </div>
+  </div>
+</body>
+</html>
